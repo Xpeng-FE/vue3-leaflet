@@ -1,0 +1,96 @@
+{
+  "name": "xp-leaflet-vue",
+  "author": "XP Lurry",
+  "version": "0.0.1",
+  "license": "MIT",
+  "private": false,
+  "sideEffects": false,
+  "main": "dist/xp-leaflet-vue.cjs.js",
+  "unpkg": "dist/xp-leaflet-vue.umd.js",
+  "module": "dist/xp-leaflet-vue.esm.js",
+  "files": [
+    "dist/"
+  ],
+  "repository": {},
+  "scripts": {
+    "serve": "vue-cli-service serve ./src/playground/index.js",
+    "build": "rollup -c rollup.config.js",
+    "lint": "vue-cli-service lint",
+    "prepublishOnly": "npm run lint && npm run build",
+    "postversion": "git push --follow-tags",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs"
+  },
+  "peerDependencies": {
+    "@types/leaflet": "^1.5.7",
+    "leaflet": "^1.6.0",
+    "leaflet-editable": "^1.2.0",
+    "leaflet-polylinedecorator": "^1.6.0",
+    "leaflet-path-transform": "1.8.0-beta.3",
+    "leafletjs-canvas-overlay": "^1.0.1",
+    "vue": "^3.0.0"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/compiler-sfc": "^3.0.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-vue": "^7.0.0-0",
+    "husky": "^4.3.0",
+    "leaflet": "1.9.3",
+    "leaflet-editable": "^1.2.0",
+    "leaflet-path-transform": "^1.8.0-beta.3",
+    "leaflet-polylinedecorator": "^1.6.0",
+    "leafletjs-canvas-overlay": "^1.0.1",
+    "lint-staged": "^10.4.0",
+    "prettier": "^2.0.5",
+    "rollup": "^2.8.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-vue": "^6.0.0-beta.11",
+    "vitepress": "^0.6.0",
+    "vue": "^3.0.0",
+    "vue-router": "^4.0.0-rc.5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint",
+      "git add"
+    ],
+    "*.vue": [
+      "eslint",
+      "git add"
+    ]
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/vue3-essential",
+      "plugin:prettier/recommended",
+      "eslint:recommended",
+      "prettier"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {
+      "prettier/prettier": [
+        "error",
+        {
+          "tabWidth": 4
+        }
+      ]
+    }
+  }
+}
